@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prince Benson Waimai</title>
+</head>
+<body>
+	<h1>Prince Benson Fusion Restaurant</h1>
+
+	<h2>Tasty Treats To Your Door</h2>
+
+	<!-- Item 1 -->
+	<p>Cake: 12RMB</p>
+	<img src="https://tse4-mm.cn.bing.net/th?id=OIP.PPe6I6KT1u7PRRmQS9MZKAHaHa&w=182&h=182&c=7&o=5&pid=1.7">
+	<br>
+
+	<!-- Item 2 -->
+	<p>Hamburger: 20RMB</p>
+	<img src="https://tse4-mm.cn.bing.net/th?id=OIP.0_f3FDbw9OTHxyx5521I_QHaFj&w=243&h=182&c=7&o=5&pid=1.7">
+
+	<!-- Item 3 -->
+	<p>Chips: 10RMB</p>
+	<img src="https://tse3-mm.cn.bing.net/th?id=OIP.cAanI1gSvXoAbw8-zskbvgHaE8&w=262&h=175&c=7&o=5&pid=1.7">
+
+    <!-- Order Form -->
+    <h2>Place your Order</h2>
+    <form action="{% url 'order:home_page' %}" method="POST">
+        {% csrf_token %}    
+        <input type="text" name="food_name" placeholder="Please Type Which food You Want"><br>
+        <textarea name="address" placeholder="Please Type Your Address"></textarea><br>
+        <input type="submit" value="Place Your Order">
+    </form> 
+
+    <!-- Show Order -->
+    <h1>Your Order:</h1>
+    <p>Food Ordered: {{foods.order}}</p>
+    <p>Delivery Address: {{foods.address}}</p>
+
+</body>
+</html>
